@@ -1,36 +1,41 @@
-html {
-    height: -webkit-fil-available;
+html { 
+    height: -webkit-fill-available;
 }
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-    min-height: 100svh;
-    min-height: -webkit-fill-available;
-    margin: 0px;
-    font-family: sans-serif;
-    background-color: #fcdee0;
+    display: flex;    /* tipus de display que ofereix més prestacions que block */
+    flex-direction: column;    /* els elements es disposen de dalt cap abaix */
+    justify-content: space-between;    /* els elements, separats per espais, ocupen tot l'espai disponibles */
+    min-height: 100vh;    /* alçària de la pantalla en navegadors d'escriptori */
+    min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
+    min-height: -webkit-fill-available;    
+    margin: 0px;    /* elimina tots els marges del document */
+    font-family: sans-serif;    /* un tipus de lletra adient per a llocs web */
+    background-color: #dee2fc;    /* color de fons en format #RRGGBB */
 }
+
+
+
 #superior {
     display: flex;
-    height: 8vmax;
-    justify-content: center;
-    align-items: center;
-    font-size: 4vmax;
-    color: white;
-    background-color: #950E17;
+    height: 8vmax;    /* alçària d'un 8% respecte l'alçària de la pantalla */
+    justify-content: center;    /* centra els elements en la direcció de disposició */
+    align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
+    font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
+    color: white;    /* color del text */
+    background-color: #270e95;    /* color de fons */
 }
 .seccio {
-    flex: 1;
-    display: none;
+    flex: 1;    /* les seccions ocupen tot l'espai disponible */
+    display: none;    /* les seccions s'inicien ocultes, excepte la primera */
 }
 #seccio_1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;    /* única secció que es mostra a l'inici */
+    justify-content: center;    /* contingut centrat en la direcció de disposició */
+    align-items: center;    /* contingut centrat en la direcció transversal */
     font-size: 4vmax;
 }
+
 #menu {
     display: flex;    /* el menú és un contenidor de tipus flex */
     height: 8vmax;
@@ -41,8 +46,21 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #950E17;
+    background-color: #270e95;
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
 }
-
+@media (orientation: landscape) {
+    body {
+        flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
+        flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
+    }
+    #superior {
+        display: none;    /* franja superior oculta per optimitzar l'espai */
+    }
+    #menu {
+        flex-direction: column;
+        width: 8vmax;
+        height: auto;    /* sobreescriu la declaració height: 8vmax; */
+    }
+}
